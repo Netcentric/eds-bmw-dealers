@@ -37,25 +37,25 @@
 
 @font-face {
   font-family: bmwgrouptntt-bold;
-  src: url('../fonts/BMWGroupTNTT-Bold.woff2') format('woff2');
+  src: url('../fonts/BMWGroupTNTT-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: bmwgrouptntt-regular;
-  src: url('../fonts/BMWGroupTNTT-Regular.woff2') format('woff2');
+  src: url('../fonts/BMWGroupTNTT-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: bmwgrouptntt-light;
-  src: url('../fonts/BMWGroupTNTT-Light.woff2') format('woff2');
+  src: url('../fonts/BMWGroupTNTT-Light.ttf') format('truetype');
 }
 
 @font-face {
   font-family: bmwgrouptntt-medium;
-  src: url('../fonts/BMWGroupTNTT-Medium.woff2') format('woff2');
+  src: url('../fonts/BMWGroupTNTT-Medium.ttf') format('truetype');
 }
 
 @font-face {
   font-family: bmwgrouptntt-thin;
-  src: url('../fonts/BMWGroupTNTT-Thin.woff2') format('woff2');
+  src: url('../fonts/BMWGroupTNTT-Thin.ttf') format('truetype');
 }
