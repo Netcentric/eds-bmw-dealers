@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--bmw-dealers--netcentric.aem.page/
+- Live: https://main--bmw-dealers--netcentric.aem.live/
 
 ## Documentation
 
