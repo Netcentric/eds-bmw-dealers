@@ -1,0 +1,216 @@
+.video-component {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-component.altBg {
+  background-color: #f5f5f5;
+}
+
+.video-component .video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.video-component .videoBgPlayer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-component .contentHolder {
+  position: relative;
+  padding: 2rem 1rem;
+}
+
+.video-component .contain {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.video-component .videoTabSection {
+  width: 100%;
+}
+
+.video-component .modelTab {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.video-component .carKeyInfoHolder {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.video-component .carName {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #262626;
+}
+
+.video-component .carName span {
+  font-style: italic;
+}
+
+.video-component .fuelType {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.video-component .fuelType li {
+  padding: 0.5rem 1rem;
+  background-color: #1c69d4;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.video-component .modelStrap {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+}
+
+.video-component .modelExtra {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.video-component .modelExtra li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.video-component .infoTitle {
+  font-size: 0.875rem;
+  color: #666;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.video-component .infoInfo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #262626;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.video-component .infoInfo span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.video-component .accelerationIcon::before,
+.video-component .seatsIcon::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.video-component .modelLinks {
+  margin-top: 1rem;
+}
+
+.video-component .arrowLink {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #1c69d4;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.video-component .arrowLink:hover {
+  background-color: #154a9e;
+}
+
+.video-component .arrowLink::after {
+  content: '→';
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* Tablet and up */
+@media (min-width: 600px) {
+  .video-component .video-wrapper {
+    height: 500px;
+  }
+
+  .video-component .contentHolder {
+    padding: 3rem 2rem;
+  }
+
+  .video-component .carName {
+    font-size: 2.5rem;
+  }
+
+  .video-component .modelStrap {
+    font-size: 1.125rem;
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 900px) {
+  .video-component .video-wrapper {
+    height: 600px;
+  }
+
+  .video-component .contentHolder {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    color: white;
+    padding: 4rem 2rem;
+  }
+
+  .video-component .carName,
+  .video-component .modelStrap,
+  .video-component .infoTitle,
+  .video-component .infoInfo {
+    color: white;
+  }
+
+  .video-component .carName {
+    font-size: 3rem;
+  }
+
+  .video-component.altBg {
+    background-color: transparent;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  .video-component .video-wrapper {
+    height: 700px;
+  }
+}
