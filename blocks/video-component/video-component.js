@@ -36,7 +36,7 @@ export default function decorate(block) {
   videoWrapper.className = 'video-wrapper';
 
   const video = document.createElement('video');
-  video.className = 'videoBgPlayer';
+  video.className = 'video-bg-player';
   video.setAttribute('playsinline', '');
   video.setAttribute('preload', 'auto');
   video.setAttribute('muted', '');
@@ -54,18 +54,18 @@ export default function decorate(block) {
 
   // Content holder
   const contentHolder = document.createElement('div');
-  contentHolder.className = 'contentHolder contain';
+  contentHolder.className = 'content-holder contain';
 
   const modelTab = document.createElement('div');
-  modelTab.className = 'modelTab';
+  modelTab.className = 'model-tab';
 
   // Car key info
   const carKeyInfoHolder = document.createElement('div');
-  carKeyInfoHolder.className = 'carKeyInfoHolder';
+  carKeyInfoHolder.className = 'car-key-info-holder';
 
   if (carName) {
     const h2 = document.createElement('h2');
-    h2.className = 'carName';
+    h2.className = 'car-name';
     // Wrap the lowercase 'i' in BMW model names (e.g. iX3, i4) with a span
     h2.innerHTML = carName.replace(/\bi([A-Z0-9])/g, '<span>i</span>$1');
     carKeyInfoHolder.appendChild(h2);
@@ -73,7 +73,7 @@ export default function decorate(block) {
 
   if (fuelType) {
     const ul = document.createElement('ul');
-    ul.className = 'fuelType';
+    ul.className = 'fuel-type';
     const li = document.createElement('li');
     li.textContent = fuelType;
     ul.appendChild(li);
@@ -82,7 +82,7 @@ export default function decorate(block) {
 
   if (description) {
     const modelStrap = document.createElement('span');
-    modelStrap.className = 'modelStrap';
+    modelStrap.className = 'model-strap';
     modelStrap.textContent = description;
     carKeyInfoHolder.appendChild(modelStrap);
   }
@@ -92,19 +92,19 @@ export default function decorate(block) {
   // Specs list
   if (specs.length) {
     const modelExtra = document.createElement('ul');
-    modelExtra.className = 'modelExtra contain';
+    modelExtra.className = 'model-extra contain';
 
     specs.forEach(({ title, value }, index) => {
       const li = document.createElement('li');
-      li.className = index === 0 ? 'modelAcceleration' : 'modelSeats';
+      li.className = index === 0 ? 'model-acceleration' : 'model-seats';
 
       const titleSpan = document.createElement('span');
-      titleSpan.className = 'infoTitle';
+      titleSpan.className = 'info-title';
       titleSpan.textContent = title;
 
       const infoSpan = document.createElement('span');
-      const iconClass = index === 0 ? 'accelerationIcon' : 'seatsIcon';
-      infoSpan.className = `infoInfo ${iconClass}`;
+      const iconClass = index === 0 ? 'acceleration-icon' : 'seats-icon';
+      infoSpan.className = `info-info ${iconClass}`;
 
       // Split "4.9 Secs" into value + unit for acceleration
       const valueParts = value.split(' ');
@@ -124,10 +124,10 @@ export default function decorate(block) {
   // CTA link
   if (ctaLink) {
     const modelLinks = document.createElement('div');
-    modelLinks.className = 'modelLinks';
+    modelLinks.className = 'model-links';
 
     const a = document.createElement('a');
-    a.className = 'arrowLink moreDetails';
+    a.className = 'arrow-link more-details';
     a.setAttribute('href', ctaLink.href);
     a.textContent = ctaLink.text;
 
@@ -138,7 +138,6 @@ export default function decorate(block) {
   contentHolder.appendChild(modelTab);
 
   // Replace block content
-  block.classList.add('altBg');
+  block.classList.add('alt-bg');
   block.replaceChildren(videoWrapper, contentHolder);
 }
-
