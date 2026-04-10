@@ -2,7 +2,6 @@ import {
   buildBlock,
   loadHeader,
   loadFooter,
-  decorateIcons,
   decorateSections,
   decorateBlocks,
   decorateTemplateAndTheme,
@@ -11,6 +10,27 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+
+const iconCache = {};
+
+async function inlineSVG(span) {
+  const iconName = Array.from(span.classList)
+    .find((c) => c.startsWith('icon-'))
+    ?.replace('icon-', '');
+  if (!iconName) return;
+  if (!iconCache[iconName]) {
+    iconCache[iconName] = fetch(`${window.hlx.codeBasePath}/icons/${iconName}.svg`)
+      .then((res) => (res.ok ? res.text() : null))
+      .catch(() => null);
+  }
+  const svg = await iconCache[iconName];
+  if (svg) span.innerHTML = svg;
+}
+
+async function decorateIcons(element) {
+  const icons = [...element.querySelectorAll('span.icon')];
+  await Promise.all(icons.map(inlineSVG));
+}
 
 /**
  * Builds hero block and prepends to main in a new section.
