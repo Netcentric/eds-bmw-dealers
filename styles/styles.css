@@ -10,6 +10,14 @@
  * governing permissions and limitations under the License.
  */
 
+/*
+ * Breakpoints
+ * Mobile:      < 767px
+ * Tablet:      >= 767px   (min-width: 767px)
+ * Desktop:     >= 1024px  (min-width: 1024px)
+ * Wide:        >= 1920px  (min-width: 1920px)
+ */
+
 :root {
   /* colors */
   --background-color: white;
@@ -18,6 +26,15 @@
   --text-color: #131313;
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
+
+  /* brand colors */
+  --color-white: #fff;
+  --color-brand-blue: #1c69d4;
+  --color-brand-blue-dark: #1452a8;
+  --color-near-black: #1a1a1a;
+  --color-dark: #262626;
+  --color-light-grey: #e8e8e8;
+  --color-focus-outline: #005fcc;
 
   /* fonts */
   --body-font-family: bmwgrouptntt, roboto-fallback, sans-serif;
@@ -160,9 +177,27 @@ a:any-link {
   overflow-wrap: break-word;
 }
 
+a:any-link:not(.button) {
+  --link-icon-size: 1em;
+}
+
+a:any-link:not(.button)::after {
+  content: '';
+  display: inline-block;
+  width: var(--link-icon-size);
+  height: var(--link-icon-size);
+  mask-image: url('/icons/arrowRightWhite.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-mode: alpha;
+  background-color: currentcolor;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
 a:hover {
   color: var(--link-hover-color);
-  text-decoration: underline;
 }
 
 /* buttons */

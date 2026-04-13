@@ -13,7 +13,7 @@ import {
 
 const iconCache = {};
 
-async function inlineSVG(span) {
+export async function inlineSVG(span) {
   const iconName = Array.from(span.classList)
     .find((c) => c.startsWith('icon-'))
     ?.replace('icon-', '');
