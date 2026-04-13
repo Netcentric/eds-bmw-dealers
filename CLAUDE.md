@@ -15,6 +15,10 @@ npm run lint:fix  # auto-fix lint issues
 
 No build step — vanilla JS/CSS served directly.
 
+## Code conventions
+
+- **JSDoc required on all functions** — every function (including private helpers) must have a JSDoc comment with a description, `@param` for each argument (with type), and `@returns` where applicable.
+
 ## Architecture
 
 This is a BMW dealer site built on [AEM Boilerplate](https://github.com/adobe/aem-boilerplate/). Content is authored in a CMS and delivered as HTML by the `*.aem.live` backend; our code decorates that HTML.
