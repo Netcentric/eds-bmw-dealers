@@ -12,16 +12,26 @@
 
 :root {
   /* colors */
-  --background-color: white;
+  --c-white: #fff;
+  --background-color: var(--c-white);
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
 
+  /* corporate colors */
+  --bmw-dark-gray: #262626;
+  --bmw-medium-gray: #7d7d7d;
+
   /* fonts */
-  --body-font-family: bmwgrouptntt-regular, roboto-fallback, sans-serif;
-  --heading-font-family: bmwgrouptntt-bold, roboto-condensed-fallback, sans-serif;
+  --ff-bmw-bold: bmwgrouptntt-bold, roboto-condensed-fallback, sans-serif;
+  --ff-bmw-regular: bmwgrouptntt-regular, roboto-fallback, sans-serif;
+  --ff-bmw-light: bmwgrouptntt-light, roboto-fallback, sans-serif;
+  --ff-bmw-medium: bmwgrouptntt-medium, roboto-fallback, sans-serif;
+  --ff-bmw-thin: bmwgrouptntt-thin, roboto-fallback, sans-serif;
+  --body-font-family: var(--ff-bmw-regular);
+  --heading-font-family: var(--ff-bmw-bold);
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -78,6 +88,8 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body.appear {

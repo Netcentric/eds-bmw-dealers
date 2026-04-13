@@ -1,20 +1,140 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--bmw-dark-gray);
+  color: var(--c-white);
+  font-size: .875rem;
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
-}
-
-footer .footer p {
+footer .title {
   margin: 0;
+  padding-block-end: 18px;
+  font-family: var(--ff-bmw-thin);
+  font-size: 1.125rem;
+  line-height: 1.2;
+}
+
+footer .footer {
+  & > div {
+    margin-inline: auto;
+    inline-size: 100%;
+    max-width: 1440px;
+    padding-inline: 5%;
+    padding-block-start: 44px;
+    box-sizing: border-box;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    padding-block-end: 4px;
+  }
+
+  a {
+    color: var(--c-white);
+    text-decoration: none;
+  }
+
+  a:hover, a:focus-visible {
+    text-decoration: underline;
+  }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+footer .footer .link-section {
+  display: grid;
+  row-gap: 44px;
+
+  & > div {
+    padding-block-end: 20px;
+  }
+}
+
+footer .footer .follow-us ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+footer .footer .legal-information ul {
+  columns: 1;
+}
+
+footer .footer .legal-information ul > li {
+  break-inside: avoid;
+}
+
+.footer-terms {
+  block-size: 20px;
+  padding-block-start: 44px;
+}
+
+.last-section {
+  border-top: 1px solid var(--bmw-medium-gray);
+  padding-block: 22px;
+}
+
+@media (width >= 480px) {
+  footer .footer .legal-information ul {
+    columns: 2;
+    column-gap: 44px;
+  }
 }
 
 @media (width >= 900px) {
+  footer .footer .link-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 44px;
+  }
+
   footer .footer > div {
     padding: 40px 32px 24px;
+  }
+}
+
+@media (width >= 1280px) {
+  footer .footer .link-section {
+    display: grid;
+    grid-template-columns: minmax(0, 2.4fr) minmax(180px, 1fr) minmax(220px, 1.5fr);
+    grid-template-areas:
+      'legal contact quick'
+      'legal . follow';
+    align-items: start;
+    gap: 28px 44px;
+  }
+
+  footer .footer .link-section > .legal-information {
+    grid-area: legal;
+  }
+
+  footer .footer .link-section > .contact {
+    grid-area: contact;
+  }
+
+  footer .footer .link-section > .quick-links {
+    grid-area: quick;
+  }
+
+  footer .footer .link-section > .follow-us {
+    grid-area: follow;
+  }
+
+  footer .footer .link-section > div {
+    padding-block-end: 0;
+    margin-block-end: 0;
+  }
+
+  footer .footer .follow-us ul {
+    gap: 20px;
   }
 }
