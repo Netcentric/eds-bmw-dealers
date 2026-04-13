@@ -56,7 +56,7 @@ function extractImage(block) {
   if (!imageRow) return;
   const img = imageRow.querySelector('img');
   const link = imageRow.querySelector('a');
-  const imageUrl = img?.src || link?.href;
+  const imageUrl = img?.getAttribute('src') || link?.href;
   if (imageUrl) block.style.setProperty('--hero-bg-image', `url(${imageUrl})`);
   imageRow.remove();
 }
@@ -90,7 +90,7 @@ export default async function decorate(block) {
     if (ctaParas.length > 1) {
       const [first, ...rest] = ctaParas;
       rest.forEach((p) => {
-        first.appendChild(p.querySelector('a'));
+        [...p.querySelectorAll('a')].forEach((a) => first.appendChild(a));
         p.remove();
       });
     }

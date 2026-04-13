@@ -27,7 +27,7 @@
     height: 90vh;
   }
 
-  /* Row 2: content row — centered on mobile, bottom-left on tablet+ */
+  /* Content row */
   & > div:last-child {
     padding: 32vh 24px 0;
     position: relative;
@@ -82,8 +82,8 @@
         padding-bottom: 20px;
 
         @media (width >= 767px) {
-            display: block;
-            max-width: 500px;
+          display: block;
+          max-width: 500px;
         }
       }
 
@@ -131,10 +131,6 @@
           gap: 20px;
           justify-content: flex-start;
 
-          h2 {
-            display: block;
-          }
-
           a {
             box-sizing: border-box;
             display: inline-flex;
@@ -150,6 +146,10 @@
             white-space: nowrap;
             background-color: var(--color-brand-blue);
             color: var(--color-white);
+
+            &::after {
+              display: none;
+            }
 
             &:hover {
               background-color: var(--color-brand-blue-dark);
@@ -201,7 +201,7 @@
         line-height: 1.4em;
 
         @media (width >= 767px) {
-            max-width: 29ch;
+          max-width: 29ch;
         }
       }
 
@@ -223,7 +223,7 @@
       padding: 26px 24px 10px;
       z-index: 3;
 
-    @media (width >= 767px) {
+      @media (width >= 767px) {
         position: static;
         width: auto;
         left: auto;
@@ -231,9 +231,9 @@
         flex-direction: column;
         gap: 20px;
         padding: 0;
-    }
+      }
 
-    ul {
+      ul {
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -242,11 +242,10 @@
         margin: 0 0 20px;
 
         @media (width >= 767px) {
-            flex-direction: row;
-            gap: 20px;
+          flex-direction: row;
+          gap: 20px;
         }
-    }
-
+      }
 
       li {
         margin: 0;
