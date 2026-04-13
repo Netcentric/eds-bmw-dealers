@@ -1,9 +1,9 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
   width: 100%;
-  z-index: 2;
+  z-index: 10;
   position: fixed;
+  color: white;
 }
 
 header nav {
@@ -28,11 +28,13 @@ header nav[aria-expanded='true'] {
     'tools tools' var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
+  background-color: transparent;
+  color: var(--white-color);
 }
 
 @media (width >= 900px) {
   header .nav-wrapper {
-    position: relative;
+    position: fixed;
   }
 
   header nav {
@@ -72,7 +74,7 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background-color: transparent;
   color: inherit;
   overflow: initial;
   text-overflow: initial;

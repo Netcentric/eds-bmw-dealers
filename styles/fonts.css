@@ -36,26 +36,32 @@
 }
 
 @font-face {
-  font-family: bmwgrouptntt-bold;
+  font-family: bmwgrouptntt;
   src: url('../fonts/BMWGroupTNTT-Bold.ttf') format('truetype');
+  font-weight: 700;
 }
 
 @font-face {
-  font-family: bmwgrouptntt-regular;
+  font-family: bmwgrouptntt;
   src: url('../fonts/BMWGroupTNTT-Regular.ttf') format('truetype');
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: bmwgrouptntt-light;
+  font-family: bmwgrouptntt;
   src: url('../fonts/BMWGroupTNTT-Light.ttf') format('truetype');
+  font-weight: 300;
+
 }
 
 @font-face {
-  font-family: bmwgrouptntt-medium;
+  font-family: bmwgrouptntt;
   src: url('../fonts/BMWGroupTNTT-Medium.ttf') format('truetype');
+  font-weight: 500;
 }
 
 @font-face {
-  font-family: bmwgrouptntt-thin;
+  font-family: bmwgrouptntt;
   src: url('../fonts/BMWGroupTNTT-Thin.ttf') format('truetype');
+  font-weight: 100;
 }
