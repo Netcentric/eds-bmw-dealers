@@ -69,6 +69,7 @@
 
         @media (width >= 767px) {
           font-size: var(--heading-font-size-xl);
+          max-width: 25ch;
         }
       }
 
@@ -79,6 +80,11 @@
         font-size: 18px;
         font-weight: 300;
         padding-bottom: 20px;
+
+        @media (width >= 767px) {
+            display: block;
+            max-width: 500px;
+        }
       }
 
       p {
@@ -204,10 +210,6 @@
         font-weight: 400;
         letter-spacing: 0.05em;
         margin-bottom: 0;
-
-        @media (width >= 767px) {
-            display: block;
-        }
       }
     }
 
