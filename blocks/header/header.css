@@ -25,6 +25,15 @@ header {
   text-decoration: none;
 }
 
+.nav-brand-list a {
+  font-family: var(--heading-font-family);
+  font-size: .8125rem;
+  letter-spacing: .03em;
+  line-height: 122%;
+  text-align: right;
+  display: block;
+}
+
 .nav-wrapper a:hover {
   text-decoration: none;
   opacity: 0.8;
@@ -44,10 +53,6 @@ nav {
   align-items: center;
 }
 
-.nav-menu-list li:nth-of-type(2) {
-  display: none;
-}
-
 .nav-menu-list-links {
   display: flex;
   align-items: center;
@@ -59,7 +64,7 @@ nav {
   margin-top: 15px;
 }
 
-.nav-menu-list-links--mobile {
+.nav-menu-list-links-mobile {
   height: 40px;
   margin: 0 5%;
   font-size: 0.625rem;
@@ -67,33 +72,37 @@ nav {
   line-height: 24px;
 }
 
-.nav-menu-list-links--mobile li {
+.nav-menu-list-links-mobile li {
   flex: 1;
   height: 16px;
   align-items: center;
 }
 
-.nav-menu-list-links--mobile li:nth-child(odd) {
+.nav-menu-list li:nth-of-type(2) {
+  display: none;
+}
+
+.nav-menu-list-links-mobile li:nth-child(odd) {
   display: flex;
   justify-content: flex-end;
   padding-right: 8%;
 }
 
-.nav-menu-list-links--mobile li:nth-child(even) {
+.nav-menu-list-links-mobile li:nth-child(even) {
   display: flex;
   justify-content: flex-start;
   padding-left: 8%;
 }
 
-.nav-menu-list-links--mobile li:not(:last-child) {
+.nav-menu-list-links-mobile li:not(:last-child) {
   border-right: 1px solid var(--c-white);
 }
 
-.nav-menu-list-links--mobile li:has(.icon-telephone) {
+.nav-menu-list-links-mobile li:has(.icon-telephone) {
   display: none;
 }
 
-.nav-menu-list-links--mobile li:has(+ li .icon-telephone) {
+.nav-menu-list-links-mobile li:has(+ li .icon-telephone) {
   border-right: none;
 }
 
@@ -108,21 +117,12 @@ nav {
   margin: 0;
 }
 
-.nav-brand-list a {
-  font-family: var(--heading-font-family);
-  font-size: .8125rem;
-  letter-spacing: .03em;
-  line-height: 122%;
-  text-align: right;
-  display: block;
-}
-
 nav .icon-logo {
   height: 42px;
   width: 42px;
 }
 
-@media only screen and (min-width: 768px) {
+@media (width >= 768px) {
   header {
     height: var(--nav-height);
     padding-top: 24px;
@@ -135,15 +135,15 @@ nav .icon-logo {
     line-height: 122%;
   }
 
-  nav:after {
+  nav::after {
     content: "";
     position: absolute;
     bottom: 30px;
     width: 90%;
     height: 1px;
-    background-color: rgba(255, 255, 255, .3);
+    background-color: rgb(255 255 255 / 30%);
     margin: 0 5%;
-    left: 0px;
+    left: 0;
   }
 
   .nav-menu-list-links-wrapper {
@@ -154,12 +154,12 @@ nav .icon-logo {
     gap: 40px;
   }
 
-  .nav-menu-list li:nth-of-type(2) {
-    display: block;
-  }
-
   .nav-wrapper li {
     font-size: var(--body-font-size-s);
+  }
+
+  .nav-menu-list li:nth-of-type(2) {
+    display: block;
   }
 
   .icon-telephone-wrapper {
