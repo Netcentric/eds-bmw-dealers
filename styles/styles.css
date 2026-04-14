@@ -20,7 +20,8 @@
 
 :root {
   /* colors */
-  --background-color: white;
+  --color-white: #fff;
+  --background-color: var(--color-white);
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
@@ -28,12 +29,12 @@
   --link-hover-color: #1d3ecf;
 
   /* brand colors */
-  --color-white: #fff;
   --color-brand-blue: #1c69d4;
   --color-brand-blue-dark: #1452a8;
   --color-near-black: #1a1a1a;
   --color-dark: #262626;
   --color-light-grey: #e8e8e8;
+  --color-medium-grey: #7d7d7d;
   --color-focus-outline: #005fcc;
 
   /* fonts */
@@ -86,6 +87,8 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body.appear {
