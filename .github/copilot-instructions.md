@@ -74,22 +74,40 @@ The project uses **BMW branding** via CSS variables in `styles/styles.css`:
 ```css
 :root {
   /* colors */
-  --background-color: white;
+  --color-white: #fff;
+  --background-color: var(--color-white);
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
-  
+
+  /* brand colors */
+  --color-brand-blue: #1c69d4;
+  --color-brand-blue-dark: #1452a8;
+  --color-near-black: #1a1a1a;
+  --color-dark: #262626;
+  --color-light-grey: #e8e8e8;
+  --color-medium-grey: #7d7d7d;
+  --color-focus-outline: #005fcc;
+
   /* fonts */
-  --body-font-family: bmwgrouptntt-regular, roboto-fallback, sans-serif;
-  --heading-font-family: bmwgrouptntt-bold, roboto-condensed-fallback, sans-serif;
-  
-  /* sizes */
+  --body-font-family: bmwgrouptntt, roboto-fallback, sans-serif;
+  --heading-font-family: bmwgrouptntt, roboto-condensed-fallback, sans-serif;
+
+  /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 19px;
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
+  --body-font-size-xs: 17px;
+
+  /* heading sizes */
+  --heading-font-size-xl: 40px;
+  --heading-font-size-l: 32px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 16px;
+  --heading-font-size-xs: 12px;
+
+  /* nav height */
   --nav-height: 64px;
 }
 ```
