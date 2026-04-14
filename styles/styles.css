@@ -24,9 +24,10 @@
   --background-color: var(--color-white);
   --light-color: #f8f8f8;
   --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
+  --text-color: #262626;
+  --link-color: #1c69d4;
   --link-hover-color: #1d3ecf;
+  --c-white: white;
 
   /* brand colors */
   --color-brand-blue: #1c69d4;
@@ -42,9 +43,8 @@
   --heading-font-family: bmwgrouptntt, roboto-condensed-fallback, sans-serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 1rem;
+  --body-font-size-s: 0.625rem;;
 
   /* heading sizes */
   --heading-font-size-xl: 40px;
@@ -54,7 +54,7 @@
   --heading-font-size-xs: 12px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 94px;
 }
 
 /* fallback fonts */
@@ -82,11 +82,12 @@
 body {
   display: none;
   margin: 0;
-  background-color: var(--background-color);
+  background-color: var( --color-white);
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -230,7 +231,7 @@ a.button.primary,
 button.button.primary {
   border-color: var(--text-color);
   background-color: var(--text-color);
-  color: var(--background-color);
+  color: var(--color-white);
 }
 
 a.button.primary:hover,
@@ -285,7 +286,7 @@ a.button.accent,
 button.button.accent {
   border-color: var(--link-color);
   background-color: var(--link-color);
-  color: var(--background-color);
+  color: var(--color-white);
 }
 
 a.button.accent:hover,
@@ -315,8 +316,8 @@ main img {
 
 .icon {
   display: inline-block;
-  height: 24px;
-  width: 24px;
+  height: 44px;
+  width: 44px;
 }
 
 .icon img {
@@ -351,4 +352,14 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body, p, ul {
+  margin: 0;
 }

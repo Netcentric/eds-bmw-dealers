@@ -32,12 +32,7 @@ export async function inlineSVG(span) {
   if (svg) span.innerHTML = svg;
 }
 
-/**
- * Inlines all SVG icons within a container element.
- * @param {HTMLElement} element The container element to search for icon spans
- * @returns {Promise<void>}
- */
-async function decorateIcons(element) {
+export async function decorateIcons(element) {
   const icons = [...element.querySelectorAll('span.icon')];
   await Promise.all(icons.map(inlineSVG));
 }
