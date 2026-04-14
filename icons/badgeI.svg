@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="44" viewBox="0 0 44 44">
+<g id="BadgeI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" clip-path="url(#clip0)">
+            <path d="M24 11L11.1666 33H26.1303C28.2166 33 30.1464 31.8918 31.1977 30.0893L42.3333 11H24ZM28.7196 29.1634C28.128 30.1772 27.0428 30.8007 25.869 30.8007H22.2538L28.4525 20.1742C28.8466 19.4986 29.5703 19.0828 30.3528 19.0828H34.5996L28.7196 29.1634ZM34.2014 17.5997H29.9545L32.0731 13.9673H37.5838L36.1017 16.5082C35.7075 17.1839 34.9838 17.5997 34.2014 17.5997Z" fill="currentColor"/>
+            <path d="M24 11L11.1667 33H2L13.1356 13.9107C14.1869 12.1082 16.1163 11 18.203 11H24Z" fill="currentColor"/>
+        </g>
+        <defs>
+            <clipPath id="clip0">
+                <rect width="40.3333" height="22" fill="white" transform="translate(2 11)"/>
+            </clipPath>
+        </defs>
+    </g>
+</svg>
