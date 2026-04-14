@@ -1,216 +1,450 @@
+/* video-component styles */
+
+main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+
 .video-component {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 615px;
+  background-color: var(--background-color-secondary);
 }
 
-.video-component.alt-bg {
-  background-color: #f5f5f5;
-}
+/* Video wrapper */
 
 .video-component .video-wrapper {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 420px;
   overflow: hidden;
+  background-color: #1a1a1a;
 }
 
-.video-component .video-bg-player {
+.video-component .video-wrapper iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 56.25vw;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 0;
   display: block;
 }
 
+/* Content holder */
+
 .video-component .content-holder {
+  display: block;
+  margin: 0 5%;
   position: relative;
-  padding: 2rem 1rem;
 }
 
 .video-component .contain {
-  max-width: 1200px;
-  margin: 0 auto;
+  display: block;
+}
+
+.video-component .contain::after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+}
+
+.video-component .soc-tab {
+  min-height: 275px;
 }
 
 .video-component .video-tab-section {
-  width: 100%;
+  display: block;
+  height: 260px;
+  position: relative;
+  margin-top: -80px;
+  background-color: var(--background-color);
+  border-radius: 10px;
 }
+
+/* Model tab */
 
 .video-component .model-tab {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 20px;
+  height: 275px;
 }
+
+/* Car key info */
 
 .video-component .car-key-info-holder {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 
+/* Car name */
+
 .video-component .car-name {
-  font-size: 2rem;
-  font-weight: 700;
+  font-family: bmwgrouptntt-light, sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.1;
   margin: 0;
   color: #262626;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: 15px;
 }
 
 .video-component .car-name span {
-  font-style: italic;
+  text-transform: lowercase;
 }
+
+/* Fuel type */
 
 .video-component .fuel-type {
   list-style: none;
   padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 0.5rem;
+  margin: 0 0 16px;
+  position: relative;
+  z-index: 2;
 }
 
 .video-component .fuel-type li {
-  padding: 0.5rem 1rem;
-  background-color: #1c69d4;
-  color: white;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-radius: 4px;
+  display: inline;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666;
+  padding-left: 17px;
+  position: relative;
 }
 
-.video-component .model-strap {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #4a4a4a;
+.video-component .fuel-type li::before {
+  content: "";
+  width: 1px;
+  height: 15px;
+  border: 1px solid #e6e6e6;
+  background-color: #666;
+  position: absolute;
+  left: 4px;
+  top: -1px;
 }
+
+.video-component .fuel-type li:first-child {
+  padding-left: 0;
+}
+
+.video-component .fuel-type li:first-child::before {
+  display: none;
+}
+
+/* Specs list */
 
 .video-component .model-extra {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: block;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 .video-component .model-extra li {
+  float: left;
+  color: #000;
+  height: 20px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  min-width: 120px;
+  gap: 2px;
+}
+
+.video-component .model-extra li:nth-child(2) {
+  padding: 0 0 0 20px;
+  margin: 0 0 0 20px;
+  border-left: 1px solid #c1c1c1;
 }
 
 .video-component .info-title {
-  font-size: 0.875rem;
+  display: none;
+  font-size: 12px;
   color: #666;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
 }
 
 .video-component .info-info {
-  font-size: 1.5rem;
+  display: block;
+  font-size: 36px;
   font-weight: 700;
   color: #262626;
-  display: flex;
-  align-items: baseline;
-  gap: 0.25rem;
+  font-family: var(--body-font-family);
+  line-height: inherit;
 }
 
 .video-component .info-info span {
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
 }
 
-.video-component .acceleration-icon::before,
-.video-component .seats-icon::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-right: 0.5rem;
-  background-size: contain;
-  background-repeat: no-repeat;
+.video-component .info-info.acceleration-icon,
+.video-component .info-info.seats-icon {
+  padding-left: 30px;
+  margin-left: 0;
+  background-size: 20px;
+  font-weight: 300;
 }
 
+.video-component .info-info.acceleration-icon {
+  background: url('/icons/gauge.svg') no-repeat -6px -6px;
+}
+
+.video-component .info-info.seats-icon {
+  background: url('/icons/seats.svg') no-repeat -3px 4px;
+}
+
+/* CTA link */
+
 .video-component .model-links {
-  margin-top: 1rem;
+  display: block;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 20px;
+  padding-top: 10px;
 }
 
 .video-component .arrow-link {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  background-color: #1c69d4;
-  color: white;
+  gap: 8px;
+  font-family: var(--heading-font-family);
+  font-size: 13px;
+  color: #1c69d4;
+  line-height: 15px;
   text-decoration: none;
-  font-weight: 500;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.video-component .arrow-link:hover {
-  background-color: #154a9e;
+  padding: 15px 0;
+  letter-spacing: 0.03em;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.2s ease;
 }
 
 .video-component .arrow-link::after {
-  content: '→';
-  margin-left: 0.5rem;
-  font-size: 1.25rem;
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: #1c69d4;
+  mask: url('/icons/arrowRightWhite.svg') no-repeat center / contain;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
 }
 
-/* Tablet and up */
-@media (width >= 600px) {
+.video-component .arrow-link:hover {
+  color: #0a4fa0;
+}
+
+.video-component .arrow-link:hover::after {
+  background-color: #0a4fa0;
+}
+
+/* Description */
+
+.video-component .model-strap {
+  display: none;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a4a4a;
+  overflow-wrap: break-word;
+}
+
+/* 450px breakpoint */
+
+@media (width >= 450px) {
+  .video-component .video-tab-section {
+    height: 228px;
+  }
+}
+
+/* 770px breakpoint */
+
+@media (width >= 770px) {
+  .video-component {
+    height: 620px;
+  }
+
   .video-component .video-wrapper {
-    height: 500px;
+    height: 450px;
   }
 
-  .video-component .content-holder {
-    padding: 3rem 2rem;
+  .video-component .soc-tab {
+    min-height: 250px;
   }
 
-  .video-component .car-name {
-    font-size: 2.5rem;
+  .video-component .video-tab-section {
+    height: 200px;
+  }
+
+  .video-component .model-tab {
+    height: 200px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .video-component .car-key-info-holder {
+    max-width: calc(100% - 160px);
+  }
+
+  .video-component .model-extra {
+    display: block;
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    margin: 16px 0 0;
+  }
+
+  .video-component .model-links {
+    position: absolute;
+    text-align: right;
+    right: 32px;
+    top: 130px;
+    width: 315px;
   }
 
   .video-component .model-strap {
-    font-size: 1.125rem;
+    display: block;
   }
 }
 
-/* Desktop and up */
+/* <900px model-tab padding */
+
+@media (width < 900px) {
+  .video-component .model-tab {
+    padding-top: 34px;
+  }
+}
+
+/* <1280px reduced info sizes */
+
+@media (width < 1280px) {
+  .video-component .info-info {
+    font-size: 16px;
+  }
+
+  .video-component .info-info.acceleration-icon {
+    background: url('/icons/gauge.svg') no-repeat -2px -2px;
+    background-size: 30px;
+  }
+
+  .video-component .info-info.seats-icon {
+    background: url('/icons/seats.svg') no-repeat -3px 4px;
+    background-size: 25px;
+  }
+}
+
+/* 900px breakpoint */
+
 @media (width >= 900px) {
+  .video-component .content-holder {
+    position: relative;
+    z-index: 1;
+    margin-top: -80px;
+    padding: 0 32px;
+  }
+
+  .video-component .model-tab {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    border-radius: 10px;
+  }
+
+  .video-component .car-key-info-holder {
+    flex: 0 0 auto;
+    justify-content: center;
+    padding-right: 32px;
+    min-width: 210px;
+  }
+}
+
+/* 1280px breakpoint */
+
+@media (width >= 1280px) {
+  .video-component {
+    height: 653px;
+  }
+
   .video-component .video-wrapper {
-    height: 600px;
+    height: 483px;
   }
 
   .video-component .content-holder {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgb(0 0 0 / 80%) 0%, transparent 100%);
-    color: white;
-    padding: 4rem 2rem;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 
-  .video-component .car-name,
-  .video-component .model-strap,
-  .video-component .info-title,
-  .video-component .info-info {
-    color: white;
+  .video-component .model-tab {
+    height: 200px;
+    margin-left: 100px;
+    margin-right: 100px;
   }
 
   .video-component .car-name {
-    font-size: 3rem;
+    font-size: 24px;
   }
 
-  .video-component.alt-bg {
-    background-color: transparent;
+  .video-component .car-key-info-holder {
+    max-width: calc(100% - 220px);
   }
-}
 
-/* Large desktop */
-@media (width >= 1200px) {
-  .video-component .video-wrapper {
-    height: 700px;
+  .video-component .model-strap {
+    padding-right: 0;
+  }
+
+  .video-component .model-extra {
+    top: 0;
+    right: 80px;
+  }
+
+  .video-component .model-extra li {
+    height: 65px;
+  }
+
+  .video-component .model-extra li:nth-child(2) {
+    padding: 0 0 0 56px;
+    margin: 0 0 0 40px;
+  }
+
+  .video-component .info-title {
+    display: block;
+  }
+
+  .video-component .info-info {
+    font-size: 36px;
+    line-height: 46px;
+    font-family: bmwgrouptntt-light, sans-serif;
+  }
+
+  .video-component .info-info.seats-icon {
+    background-size: 45px;
+    padding-left: 50px;
+  }
+
+  .video-component .info-info.acceleration-icon {
+    background-size: 60px;
+    padding-left: 50px;
+  }
+
+  .video-component .model-links {
+    position: absolute;
+    right: 62px;
+    top: 122px;
+    width: 315px;
   }
 }

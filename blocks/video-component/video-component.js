@@ -1,3 +1,5 @@
+import { createVideoBackground } from '../../scripts/common.js';
+
 export default function decorate(block) {
   const rows = [...block.children];
 
@@ -8,8 +10,8 @@ export default function decorate(block) {
   const contentCell = rows[1]?.querySelector('div');
   const paragraphs = [...(contentCell?.querySelectorAll('p') || [])];
 
-  // Categorise paragraphs: spec lines contain '|', link lines contain an <a>, rest are content
-  const contentLines = [];
+  // Categorise paragraphs: spec lines contain '|', link lines contain <a>, rest are content
+  const contentParagraphs = [];
   const specs = [];
   let ctaLink = null;
 
@@ -23,50 +25,44 @@ export default function decorate(block) {
       const parts = text.split('|').map((s) => s.trim()).filter(Boolean);
       if (parts.length >= 2) specs.push({ title: parts[0], value: parts[1] });
     } else if (text) {
-      contentLines.push(text);
+      contentParagraphs.push(p);
     }
   });
 
-  const [carName, fuelType, description] = contentLines;
+  const carName = contentParagraphs[0]?.textContent.trim();
+  const fuelType = contentParagraphs[1]?.textContent.trim();
+  // Preserve inline markup (e.g. <sup>) authored in DA
+  const descriptionHtml = contentParagraphs[2]?.innerHTML;
 
-  // --- Build DOM ---
-
-  // Video wrapper
+  // --- Video wrapper ---
   const videoWrapper = document.createElement('div');
   videoWrapper.className = 'video-wrapper';
 
-  const video = document.createElement('video');
-  video.className = 'video-bg-player';
-  video.setAttribute('playsinline', '');
-  video.setAttribute('preload', 'auto');
-  video.setAttribute('muted', '');
-  video.setAttribute('autoplay', '');
-  video.setAttribute('loop', '');
+  const videoEmbed = createVideoBackground(videoUrl);
+  if (videoEmbed) videoWrapper.appendChild(videoEmbed);
 
-  if (videoUrl) {
-    const source = document.createElement('source');
-    source.setAttribute('src', videoUrl);
-    source.setAttribute('type', 'video/mp4');
-    video.append(source, document.createTextNode('Your browser does not support the video tag.'));
-  }
-
-  videoWrapper.appendChild(video);
-
-  // Content holder
+  // --- Content holder with nested structure ---
   const contentHolder = document.createElement('div');
   contentHolder.className = 'content-holder contain';
+
+  const socTab = document.createElement('div');
+  socTab.className = 'soc-tab';
+  socTab.setAttribute('role', 'tabpanel');
+
+  const videoTabSection = document.createElement('div');
+  videoTabSection.className = 'contain video-tab-section';
 
   const modelTab = document.createElement('div');
   modelTab.className = 'model-tab';
 
-  // Car key info
+  // Car key info holder: heading + fuel type + description
   const carKeyInfoHolder = document.createElement('div');
   carKeyInfoHolder.className = 'car-key-info-holder';
 
   if (carName) {
     const h2 = document.createElement('h2');
     h2.className = 'car-name';
-    // Wrap the lowercase 'i' in BMW model names (e.g. iX3, i4) with a span
+    // Wrap lowercase 'i' in BMW model names (iX3, i4…) for italic styling
     h2.innerHTML = carName.replace(/\bi([A-Z0-9])/g, '<span>i</span>$1');
     carKeyInfoHolder.appendChild(h2);
   }
@@ -80,10 +76,10 @@ export default function decorate(block) {
     carKeyInfoHolder.appendChild(ul);
   }
 
-  if (description) {
+  if (descriptionHtml) {
     const modelStrap = document.createElement('span');
     modelStrap.className = 'model-strap';
-    modelStrap.textContent = description;
+    modelStrap.innerHTML = descriptionHtml;
     carKeyInfoHolder.appendChild(modelStrap);
   }
 
@@ -94,19 +90,24 @@ export default function decorate(block) {
     const modelExtra = document.createElement('ul');
     modelExtra.className = 'model-extra contain';
 
+    const SPEC_TYPES = [
+      { liClass: 'model-acceleration', iconClass: 'acceleration-icon' },
+      { liClass: 'model-seats', iconClass: 'seats-icon' },
+    ];
+
     specs.forEach(({ title, value }, index) => {
+      const { liClass, iconClass } = SPEC_TYPES[index] ?? SPEC_TYPES[SPEC_TYPES.length - 1];
       const li = document.createElement('li');
-      li.className = index === 0 ? 'model-acceleration' : 'model-seats';
+      li.className = liClass;
 
       const titleSpan = document.createElement('span');
       titleSpan.className = 'info-title';
       titleSpan.textContent = title;
 
       const infoSpan = document.createElement('span');
-      const iconClass = index === 0 ? 'acceleration-icon' : 'seats-icon';
       infoSpan.className = `info-info ${iconClass}`;
 
-      // Split "4.9 Secs" into value + unit for acceleration
+      // Split "4.9 Secs" into number + unit
       const valueParts = value.split(' ');
       if (valueParts.length > 1) {
         infoSpan.innerHTML = `${valueParts[0]} <span>${valueParts.slice(1).join(' ')}</span>`;
@@ -135,9 +136,10 @@ export default function decorate(block) {
     modelTab.appendChild(modelLinks);
   }
 
-  contentHolder.appendChild(modelTab);
+  // Nest the elements: contentHolder > socTab > videoTabSection > modelTab
+  videoTabSection.appendChild(modelTab);
+  socTab.appendChild(videoTabSection);
+  contentHolder.appendChild(socTab);
 
-  // Replace block content
-  block.classList.add('alt-bg');
   block.replaceChildren(videoWrapper, contentHolder);
 }
