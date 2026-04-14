@@ -20,6 +20,8 @@
 
 :root {
   /* colors */
+  --color-white: #fff;
+  --background-color: var(--color-white);
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #262626;
@@ -28,12 +30,12 @@
   --c-white: white;
 
   /* brand colors */
-  --color-white: #fff;
   --color-brand-blue: #1c69d4;
   --color-brand-blue-dark: #1452a8;
   --color-near-black: #1a1a1a;
   --color-dark: #262626;
   --color-light-grey: #e8e8e8;
+  --color-medium-grey: #7d7d7d;
   --color-focus-outline: #005fcc;
 
   /* fonts */
@@ -80,12 +82,14 @@
 body {
   display: none;
   margin: 0;
-  background-color: var(--c-white);
+  background-color: var( --color-white);
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body.appear {
@@ -227,7 +231,7 @@ a.button.primary,
 button.button.primary {
   border-color: var(--text-color);
   background-color: var(--text-color);
-  color: var(--c-white);
+  color: var(--color-white);
 }
 
 a.button.primary:hover,
@@ -282,7 +286,7 @@ a.button.accent,
 button.button.accent {
   border-color: var(--link-color);
   background-color: var(--link-color);
-  color: var(--c-white);
+  color: var(--color-white);
 }
 
 a.button.accent:hover,

@@ -17,11 +17,11 @@ header {
 .nav-wrapper {
   flex-direction: column;
   display: flex;
-  color: var(--c-white);
+  color: var( --color-white);
 }
 
 .nav-wrapper a {
-  color: var(--c-white);
+  color: var(--color-white);
   text-decoration: none;
 
   &:any-link:not(.button)::after {
@@ -99,7 +99,7 @@ nav {
 }
 
 .nav-menu-list-links-mobile li:not(:last-child) {
-  border-right: 1px solid var(--c-white);
+  border-right: 1px solid var(--color-white);
 }
 
 .nav-menu-list-links-mobile li:has(.icon-telephone) {
