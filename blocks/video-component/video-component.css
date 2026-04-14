@@ -207,7 +207,7 @@ main > .section > div {
 }
 
 .video-component .info-info.seats-icon {
-  background: url('/icons/seats.svg') no-repeat -3px 4px;
+  background: url('/icons/seats-2.svg') no-repeat -3px 4px;
 }
 
 /* CTA link */
@@ -343,7 +343,7 @@ main > .section > div {
   }
 
   .video-component .info-info.seats-icon {
-    background: url('/icons/seats.svg') no-repeat -3px 4px;
+    background: url('/icons/seats-2.svg') no-repeat -3px 4px;
     background-size: 25px;
   }
 }
