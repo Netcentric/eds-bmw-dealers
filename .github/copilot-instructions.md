@@ -114,25 +114,30 @@ ul { list-style: none; }
 
 ### Responsive Design Pattern
 
-Use **mobile-first** approach with min-width media queries:
+Use **mobile-first** approach with min-width media queries. Project breakpoints:
 
 ```css
-/* Mobile default (320px+) */
+/* Mobile default (<676px) */
 .cards { padding: 1rem; }
 
-/* Tablet (600px+) */
-@media (width >= 600px) {
+/* Tablet (676px+) */
+@media (width >= 676px) {
   .cards { padding: 2rem; }
 }
 
-/* Desktop (900px+) */
-@media (width >= 900px) {
+/* Desktop (1024px+) */
+@media (width >= 1024px) {
   .cards { padding: 3rem; }
 }
 
-/* Large desktop (1200px+) */
-@media (width >= 1200px) {
+/* Large desktop (1440px+) */
+@media (width >= 1440px) {
   .cards { padding: 4rem; }
+}
+
+/* XL desktop (1920px+) */
+@media (width >= 1920px) {
+  .cards { padding: 5rem; }
 }
 ```
 
