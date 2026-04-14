@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="148.6000 156.9350 28.8000 28.8000" width="24" height="24" fill="currentColor">
-<path d="M175.0000 168.6650L151.0000 168.6650L151.0000 167.3350L175.0000 167.3350L175.0000 168.6650" fill="currentColor"/>
-<path d="M175.0000 160.6650L151.0000 160.6650L151.0000 159.3350L175.0000 159.3350L175.0000 160.6650" fill="currentColor"/>
-<path d="M175.0000 176.6650L151.0000 176.6650L151.0000 175.3350L175.0000 175.3350L175.0000 176.6650" fill="currentColor"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="44" viewBox="0 0 44 44">
+<g id="IconMenu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect x="12" y="14" width="15.0196" height="1" fill="white"/>
+        <rect x="12" y="21" width="20.0261" height="1" fill="white"/>
+        <rect x="12" y="28" width="15.0196" height="1" fill="white"/>
+    </g>
 </svg>
