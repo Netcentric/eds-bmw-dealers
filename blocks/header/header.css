@@ -23,6 +23,10 @@ header {
 .nav-wrapper a {
   color: var(--c-white);
   text-decoration: none;
+
+  &:any-link:not(.button)::after {
+    content: none;
+  }
 }
 
 .nav-brand-list a {
@@ -130,7 +134,8 @@ nav .icon-logo {
 
   nav li {
     font-family: var(--heading-font-family);
-    font-size: .8125rem;
+    font-weight: 700;
+    font-size: 0.8125rem;
     letter-spacing: .03em;
     line-height: 122%;
   }
@@ -152,10 +157,6 @@ nav .icon-logo {
 
   .nav-menu-list-links {
     gap: 40px;
-  }
-
-  .nav-wrapper li {
-    font-size: var(--body-font-size-s);
   }
 
   .nav-menu-list li:nth-of-type(2) {

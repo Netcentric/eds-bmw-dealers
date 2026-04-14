@@ -13,7 +13,12 @@ import {
 
 const iconCache = {};
 
-async function inlineSVG(span) {
+/**
+ * Inlines an SVG icon into a span element by fetching and injecting the SVG markup.
+ * @param {HTMLElement} span The span element with an icon- class to inline
+ * @returns {Promise<void>}
+ */
+export async function inlineSVG(span) {
   const iconName = Array.from(span.classList)
     .find((c) => c.startsWith('icon-'))
     ?.replace('icon-', '');
