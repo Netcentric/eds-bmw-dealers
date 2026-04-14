@@ -27,7 +27,7 @@ async function inlineSVG(span) {
   if (svg) span.innerHTML = svg;
 }
 
-async function decorateIcons(element) {
+export async function decorateIcons(element) {
   const icons = [...element.querySelectorAll('span.icon')];
   await Promise.all(icons.map(inlineSVG));
 }
