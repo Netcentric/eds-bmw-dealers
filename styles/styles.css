@@ -54,7 +54,8 @@
   --heading-font-size-s: 16px;
   --heading-font-size-xs: 12px;
 
-  /* nav height */
+  /* nav height: --nav-wrapper-height + --nav-padding-top on mobile */
+  --nav-padding-top: 16px;
   --nav-height: 94px;
 }
 
@@ -331,6 +332,10 @@ main > .section {
   margin: 40px 0;
 }
 
+main > .section.video-component-container {
+  margin: 20px 0 40px;
+}
+
 main > .section > div {
   max-width: 1200px;
   margin: auto;
@@ -339,6 +344,10 @@ main > .section > div {
 
 main > .section:first-of-type {
   margin-top: 0;
+}
+
+main > .section:last-of-type {
+  margin-bottom: 0;
 }
 
 @media (width >= 1024px) {
