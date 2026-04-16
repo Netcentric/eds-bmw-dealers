@@ -1,4 +1,74 @@
 /**
+ * Creates a DOM element with specified options.
+ * @param {string} tag The HTML tag name for the element. [Mandatory]
+ * @param {Object} [options={}] The options for creating the element.
+ * @param {string|string[]} [options.className=''] The class name(s) to add to the element.
+ * Can be a single class, space-separated, comma-separated, or an array.
+ * @param {Object} [options.properties={}] The properties to set on the element.
+ * @param {string} [options.innerContent=''] Can be plain text or an HTML fragment.
+ * @return {Element} The created DOM element.
+ * @example
+ * // Single class
+ * const element = createElement('div', { className: 'container' });
+ * // Result: <div class="container"></div>
+ * @example
+ * // Space-separated classes
+ * const element = createElement('div', { className: 'container large' });
+ * // Result: <div class="container large"></div>
+ * @example
+ * // Comma-separated classes
+ * const element = createElement('div', { className: 'container,large,primary' });
+ * // Result: <div class="container large primary"></div>
+ * @example
+ * // Array of classes
+ * const element = createElement('div', { className: ['container', 'large', 'primary'] });
+ * // Result: <div class="container large primary"></div>
+ * @example
+ * // With properties and text content
+ * const element = createElement('div', {
+ *   className: 'container large',
+ *   attributes: { id: 'main' },
+ *   innerContent: 'Hello World'
+ * });
+ * // Result: <div class="container large" id="main">Hello World</div>
+ * @example
+ * // With HTML fragment
+ * const element = createElement('div', {
+ *   className: 'container',
+ *   innerContent: '<p>Nested content</p>'
+ * });
+ * // Result: <div class="container"><p>Nested content</p></div>
+*/
+export function createElement(tag, options = {}) {
+  const {
+    className = '', attributes = {}, innerContent = '',
+  } = options;
+  const element = document.createElement(tag);
+  const isString = typeof className === 'string' || className instanceof String;
+  if (className || (isString && className !== '') || (!isString && className.length > 0)) {
+    const classes = isString ? className.split(/[\s,]+/).filter(Boolean) : className;
+    element.classList.add(...classes);
+  }
+  if (!isString && className.length === 0) {
+    element.removeAttribute('class');
+  }
+
+  if (attributes) {
+    Object.keys(attributes).forEach((propName) => {
+      const value = propName === attributes[propName] ? '' : attributes[propName];
+      element.setAttribute(propName, value);
+    });
+  }
+
+  if (innerContent) {
+    const fragmentNode = document.createRange().createContextualFragment(innerContent);
+    element.appendChild(fragmentNode);
+  }
+
+  return element;
+}
+
+/**
  * Detects the video platform for a given URL.
  * @param {string} url
  * @returns {'youtube'|'vimeo'|null}
@@ -36,6 +106,30 @@ export function getVimeoVideoId(url) {
   return match ? match[1] : null;
 }
 
+function createVideoIframe(properties = {}) {
+  const {
+    src = '',
+    title = 'Background Video',
+    allow = 'autoplay; encrypted-media',
+    frameborder = '0',
+    allowfullscreen = '',
+    ariaHidden = 'true',
+    tabIndex = '-1',
+  } = properties;
+  const iframe = createElement('iframe', {
+    attributes: {
+      src,
+      title,
+      frameborder,
+      allow,
+      allowfullscreen,
+      'aria-hidden': ariaHidden,
+      tabindex: tabIndex,
+    },
+  });
+  return iframe;
+}
+
 /**
  * Creates a YouTube iframe configured for muted, looping background autoplay.
  * Hidden from assistive technology and pointer events.
@@ -56,15 +150,9 @@ export function createYouTubeBackground(videoId) {
     iv_load_policy: '3',
   });
 
-  const iframe = document.createElement('iframe');
-  iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
-  iframe.title = 'Background video';
-  iframe.setAttribute('frameborder', '0');
-  iframe.setAttribute('allow', 'autoplay; encrypted-media');
-  iframe.setAttribute('allowfullscreen', '');
-  iframe.setAttribute('aria-hidden', 'true');
-  iframe.setAttribute('tabindex', '-1');
-  return iframe;
+  return createVideoIframe({
+    src: `https://www.youtube-nocookie.com/embed/${videoId}?${params}`,
+  });
 }
 
 /**
@@ -83,15 +171,9 @@ export function createVimeoBackground(videoId) {
     playsinline: '1',
   });
 
-  const iframe = document.createElement('iframe');
-  iframe.src = `https://player.vimeo.com/video/${videoId}?${params}`;
-  iframe.title = 'Background video';
-  iframe.setAttribute('frameborder', '0');
-  iframe.setAttribute('allow', 'autoplay; encrypted-media');
-  iframe.setAttribute('allowfullscreen', '');
-  iframe.setAttribute('aria-hidden', 'true');
-  iframe.setAttribute('tabindex', '-1');
-  return iframe;
+  return createVideoIframe({
+    src: `https://player.vimeo.com/video/${videoId}?${params}`,
+  });
 }
 
 /**
